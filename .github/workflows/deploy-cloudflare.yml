@@ -16,6 +16,7 @@ jobs:
     env:
       NAME: ${{ secrets.NAME || vars.NAME || 'cloud-mail' }}
       CUSTOM_DOMAIN: ${{ secrets.CUSTOM_DOMAIN || vars.CUSTOM_DOMAIN }}
+      CUSTOM_DOMAIN2: ${{ secrets.CUSTOM_DOMAIN2 || vars.CUSTOM_DOMAIN2 }}
       DOMAIN: ${{ secrets.DOMAIN || vars.DOMAIN }}
       ADMIN: ${{ secrets.ADMIN || vars.ADMIN }}
       PASSWORD: ${{ secrets.PASSWORD || vars.PASSWORD }}
@@ -106,6 +107,15 @@ jobs:
           
           if [ -z "$CUSTOM_DOMAIN" ]; then
             sed -i '/\[\[routes\]\]/,/^$/d' "$CONFIG_FILE"
+          fi
+
+          if [ -n "$CUSTOM_DOMAIN2" ]; then
+            cat >> "$CONFIG_FILE" <<EOF
+
+          [[routes]]
+          pattern = "${CUSTOM_DOMAIN2}"
+          custom_domain = true
+          EOF
           fi
           
           if [ -n "$EMAIL" ]; then
