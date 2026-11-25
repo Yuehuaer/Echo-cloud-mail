@@ -159,5 +159,13 @@ cloud-mail
 
 [Telegram](https://t.me/cloud_mail_tg)
 
+## 本 Fork 的部署与运维
+
+本仓库是 `maillab/cloud-mail` 的 fork，部署了两个邮箱域名 `229830.xyz` / `kechox.com`，通过 GitHub Actions 自动部署到 Cloudflare Workers。
+
+- [技术方案与运维手册](docs/SOLUTION.md) — 架构、配置清单、故障排查
+- [会话存档](docs/session-log/) — 每次变更的详细记录
+- [架构决策记录](docs/decisions/) — 双域名与联动方案的决策依据
+
 
 

@@ -26,3 +26,6 @@ mail-vue/dist
 .wrangler
 .venv
 git-tools.js
+
+# 本地会话记忆（含运维细节，不推送到公开仓库）
+.workbuddy/
